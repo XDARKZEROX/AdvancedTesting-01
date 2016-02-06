@@ -10,6 +10,20 @@ public class RevisionesProductoTest {
 	
 	RevisionesProducto revisiones = new RevisionesProducto();
 	
+	@Test 
+	public void testName() throws Exception{
+		throw new Exception();
+		
+		//Arrange
+		//Aca se instancia revisioes Producto
+		
+		//Act
+		
+		
+		//Assert
+		
+	}
+	
 	//@Ignore
 	@Test
 	public void shouldAddProductRevision() {
@@ -24,13 +38,12 @@ public class RevisionesProductoTest {
 	@Ignore
 	@Test
 	public void shouldGetStarsNumber(){
-		
+		Long result;
 		try {
-			revisiones.nroEstrellas();
+			result = revisiones.nroEstrellas();
 		} catch(Exception e) {
 			Assert.fail(e.getMessage());
 		}
-		
 	}
 	
 
