@@ -35,15 +35,17 @@ public class RevisionesProductoTest {
 		}
 	}
 	
-	@Ignore
+	//@Ignore
 	@Test
 	public void shouldGetStarsNumber(){
-		Long result;
+		long stars = 0;
 		try {
-			result = revisiones.nroEstrellas();
+			stars = revisiones.nroEstrellas();
 		} catch(Exception e) {
 			Assert.fail(e.getMessage());
 		}
+	
+		Assert.assertEquals(2, stars);
 	}
 	
 
