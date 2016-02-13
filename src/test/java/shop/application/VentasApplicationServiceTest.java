@@ -34,10 +34,10 @@ public class VentasApplicationServiceTest {
 			
 		} catch(Exception e) {
 			Assert.fail(e.getMessage());
+			Assert.assertTrue(true);
 		}
 		
 		Assert.assertNotNull(revisionBuscada);
-		
 	}
 
 }
