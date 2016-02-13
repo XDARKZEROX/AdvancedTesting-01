@@ -11,20 +11,22 @@ import shop.services.CuponDescuentoService;
 
 public class VentasApplicationService {
 
+	CuponDescuentoService cuponService;
 	OrdenDataAccess ordenDataAccess;
 	RevisionDataAccess revisionDataAccess;
-	public VentasApplicationService(){
+	
+	public VentasApplicationService(RevisionDataAccess revisionDataAccess){
 		this.ordenDataAccess=new OrdenDataAccess();
-		this.revisionDataAccess=new RevisionDataAccess();
+		this.revisionDataAccess=revisionDataAccess;
 	}
-
+	
 	public void agregarProductoAOrden(OrdenCompra orden, Producto producto) throws Exception {
 		orden.agregarProducto(producto);
 		ordenDataAccess.grabar(orden);
 	}
 	
 	public void aplicarCupon(OrdenCompra orden, String cupon) throws Exception {
-		CuponDescuentoService cuponService = new CuponDescuentoService();
+		//CuponDescuentoService cuponService = new CuponDescuentoService();
 		double descuento=cuponService.calcularDescuento(orden.getTotal(), cupon);
 		orden.aplicarDescuento(descuento);
 		ordenDataAccess.grabar(orden);

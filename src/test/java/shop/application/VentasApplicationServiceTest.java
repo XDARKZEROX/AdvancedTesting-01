@@ -1,13 +1,16 @@
 package shop.application;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 import shop.data.RevisionDataAccess;
 import shop.domain.Revision;
 
 public class VentasApplicationServiceTest {
 	
-	VentasApplicationService ventasApplicationService = new VentasApplicationService();
+	RevisionDataAccess revisionDataAccess = new RevisionDataAccess();
+	VentasApplicationService ventasApplicationService = new VentasApplicationService(revisionDataAccess);
 	Revision revision;
 	
 	@Before
