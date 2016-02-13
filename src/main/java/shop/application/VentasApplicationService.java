@@ -1,17 +1,21 @@
 package shop.application;
 
 import shop.data.OrdenDataAccess;
+import shop.data.RevisionDataAccess;
 import shop.domain.DetalleEnvio;
 import shop.domain.OrdenCompra;
 import shop.domain.Producto;
+import shop.domain.Revision;
 import shop.services.CostoEnvioService;
 import shop.services.CuponDescuentoService;
 
 public class VentasApplicationService {
 
 	OrdenDataAccess ordenDataAccess;
+	RevisionDataAccess revisionDataAccess;
 	public VentasApplicationService(){
 		this.ordenDataAccess=new OrdenDataAccess();
+		this.revisionDataAccess=new RevisionDataAccess();
 	}
 
 	public void agregarProductoAOrden(OrdenCompra orden, Producto producto) throws Exception {
@@ -38,5 +42,12 @@ public class VentasApplicationService {
 			throw new IllegalStateException("Orden invalida");
 		orden.ingresarOrden();
 		ordenDataAccess.grabar(orden);
+	}
+	
+	public void agregarRevision(Revision revision) throws Exception{
+		Revision revisionExistente=revisionDataAccess.buscar(revision.getProductId(),revision.getRevisorNombre());
+		if(revisionExistente!=null)
+			throw new IllegalStateException("Esta persona ya ha agregado una revisión al producto");
+		revisionDataAccess.grabar(revision);
 	}
 }

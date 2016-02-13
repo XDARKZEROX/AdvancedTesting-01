@@ -18,7 +18,7 @@ public class CostoEnvioService {
 				return costoPaisDataAccess.obtenerCostoEnvio(envioDetalle.getPais());
 			}
 		}
-		if (envioDetalle.getTipoEnvio() == "URGENTE") {
+		if (envioDetalle.getTipoEnvio() == "TWO DAY") {
 			double costoPais = costoPaisDataAccess.obtenerCostoEnvio(envioDetalle
 					.getPais());
 			return costoPais * 1.2;

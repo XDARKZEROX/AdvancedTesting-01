@@ -1,0 +1,4 @@
+id,productId,revisorNombre,calificacion,comentario
+86,1,JuanCarlos,5,que buen libro
+33,1,Miguel,5,que buen libro
+20,1,Alexander,20,Excelente

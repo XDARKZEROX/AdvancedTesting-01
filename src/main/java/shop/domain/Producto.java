@@ -5,6 +5,8 @@ public class Producto {
 	private int id;
 	private double precio;
 	
+	public RevisionesProducto revisiones=new RevisionesProducto();
+	
 	public Producto(int id) {
 		this.id = id;
 	}

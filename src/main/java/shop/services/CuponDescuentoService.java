@@ -10,7 +10,6 @@ public class CuponDescuentoService {
 		if (cupon != null) {
 			discountPercentage = cuponDataAccess.obtenerPorcentajeDescuento(cupon);
 		}
-
 		return costoTotal * discountPercentage / 100;
 	}
 }

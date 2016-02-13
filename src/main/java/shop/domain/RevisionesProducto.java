@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RevisionesProducto {
 	List<Integer> calificaciones = new ArrayList<Integer>();
-	
+
 	public void agregarRevision(int calificacion) {
 		calificaciones.add(calificacion);
 	}
@@ -15,13 +15,16 @@ public class RevisionesProducto {
 	}
 
 	public double promedio() {
-		int suma = 0;
+		if (calificaciones.size() == 0) {
+			return 0;
+		}
+		double suma = 0;
 		for (Integer revision : calificaciones) {
 			suma += revision;
 		}
 		return suma / calificaciones.size();
 	}
-	
+
 	public int nroCalificaciones() {
 		return calificaciones.size();
 	}
